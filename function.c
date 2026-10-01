@@ -1,4 +1,3 @@
-#include"inverted.h"
 #include"function.h"
 
 FLAG validate_argumnets(int argc,char *argv[],F_node **Head)

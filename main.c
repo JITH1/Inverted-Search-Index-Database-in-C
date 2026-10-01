@@ -1,4 +1,3 @@
-#include"inverted.h"
 #include"function.h"
 
 int main(int argc,char *argv[])
@@ -25,7 +24,14 @@ int main(int argc,char *argv[])
        switch(option)
        {
           case 1:
-          
+          if(create_database(HT,&Head))
+          {
+             printf(GREEN"\nData Base Created Successfully...!\n"RESET);
+          }
+          else
+          {
+             printf(RED"\nCan't Create Database...!\n"RESET);
+          }
           break;
 
           case 2:

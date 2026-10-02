@@ -33,7 +33,7 @@ FLAG create_database(M_node *HT[],F_node **Head)
         {
             if(isalpha((unsigned char)ch))
             {
-                 if(index < sizeof(buffer) - 1)
+                 if((unsigned int)index < sizeof(buffer) - 1)
                  buffer[index++] = tolower((unsigned char)ch);
             }
             else
@@ -47,8 +47,11 @@ FLAG create_database(M_node *HT[],F_node **Head)
             }
         }
 
-        buffer[index] = '\0';
-        store_word(HT,buffer,f_ptr->f_name);
+        if(index > 0)
+        {
+            buffer[index] = '\0';
+            store_word(HT,buffer,f_ptr->f_name);
+        }
         
         fclose(open);
         f_ptr = f_ptr->link ;
@@ -86,9 +89,9 @@ void store_word(M_node *HT[], const char *word, const char *filename)
      
      M_node *new = (M_node *) malloc(sizeof(M_node));
     
-     strncpy(new->word,word,sizeof(word)-1);
+     strncpy(new->word,word,sizeof(new->word)-1);
 
-     new->word[sizeof(word)-1] = '\0'; 
+     new->word[sizeof(new->word)-1] = '\0'; 
 
      new->file_count = 0;
      
@@ -139,8 +142,8 @@ void create_node(M_node *HT,const char *filename)
      S_node *new = malloc(sizeof(S_node));
 
      new->word_count = 1;
-     strncpy(new->file_name,filename,sizeof(filename)-1);
-     new->file_name[sizeof(filename) - 1] = '\0';
+     strncpy(new->file_name,filename,sizeof(new->file_name)-1);
+     new->file_name[sizeof(new->file_name) - 1] = '\0';
      new->sub_link = NULL;
 
      if(HT->sub_link == NULL)

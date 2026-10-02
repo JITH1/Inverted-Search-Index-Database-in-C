@@ -21,5 +21,8 @@ void store_word(M_node *HT[], const char *word, const char *filename);
 S_node *find_file(M_node *HT,const char *filename);
 void create_node(M_node *HT,const char *filename);
 int get_index(char ch);
+void display_database(M_node *HT[]);
+void Save_database(M_node *HT[]);
+FLAG validate_fname(const char *f_name);
 
 #endif

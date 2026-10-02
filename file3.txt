@@ -1,0 +1,6 @@
+This document outlines the weekly achievements, roadblocks, and insights 
+gained during the current sprint cycle. The focus is to reflect on team 
+performance, optimize workflows, and prepare for the upcoming planning session.
+To prevent future delays, the team will establish a rigid approval deadline at
+the start of each cycle. We will also introduce a brief daily sync to align on
+any sudden changes to project priorities.

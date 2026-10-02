@@ -1,0 +1,6 @@
+This repository serves as a central reference for operational guidelines and troubleshooting 
+steps. Team members should use this document to log frequent issues, document standard procedures,
+and share relevant system knowledge to ensure continuity across shifts.
+All secondary documentation, training materials, and escalation paths are hosted on the main company
+wiki. For emergency issues outside of normal working hours, please refer to the on-call rota pinned
+in the primary communication channel.

@@ -18,7 +18,7 @@ int main(int argc,char *argv[])
     int option ;
     do
     {
-       printf(YELLOW"\nSelect your choice among following operations:\n1. Create Database\n2. Display Database\n3. Save Database\n4. Search\n5. Update Database\n6. Exit\n\nEnter your choice : "RESET);
+       printf(YELLOW"\nSelect your choice among following operations:\n1. Create Database\n2. Display Database\n3. Save Database\n4. Search\n5. Update Database\n6. Clear Database\n7.Exit\n\nEnter your choice : "RESET);
 	    scanf("%d", &option);
 
        switch(option)
@@ -43,12 +43,21 @@ int main(int argc,char *argv[])
           break;
 
           case 4:
+          
           break;
 
           case 5:
           break;
 
           case 6:
+          if(Clear_database(HT,&Head))
+          {
+             printf(GREEN"\nDatabase Cleared...!\n"RESET);
+          }
+          else
+          {
+             printf(RED"\nDatabase is empty...!\n"RESET);
+          }
           break;
 
           default:
@@ -56,7 +65,7 @@ int main(int argc,char *argv[])
           break;
        }
 
-    }while(option != 6);
+    }while(option != 7);
     
     
     return 0;

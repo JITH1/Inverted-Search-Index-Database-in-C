@@ -24,5 +24,6 @@ int get_index(char ch);
 void display_database(M_node *HT[]);
 void Save_database(M_node *HT[]);
 FLAG validate_fname(const char *f_name);
+FLAG Clear_database(M_node *HT[],F_node **f_node);
 
 #endif

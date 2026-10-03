@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
 
-inverted.o : main.o Database.o function.o Display.o Save.o Clear.o
-	$(CC) $(CFLAGS) main.o Database.o function.o Save.o Display.o Clear.o -o inverted.o
+inverted.o : main.o Database.o function.o Display.o Save.o Clear.o Search.o
+	$(CC) $(CFLAGS) main.o Database.o function.o Save.o Display.o Clear.o Search.o -o inverted.o
 main.o : function.h
 	$(CC) $(CFLAGS) -c main.c
 Database.o : function.h 
@@ -15,6 +15,8 @@ Save.o : function.h
 	$(CC) $(CFLAGS) -c Save.c
 Clear.o : function.h
 	$(CC) $(CFLAGS) -c Clear.c
+Search.o : function.h
+	$(CC) $(CFLAGS) -c Search.c
 
 clean :
 	rm -f *.o inverted.o

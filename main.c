@@ -43,7 +43,7 @@ int main(int argc,char *argv[])
           break;
 
           case 4:
-          
+          Search_database();
           break;
 
           case 5:
@@ -58,6 +58,10 @@ int main(int argc,char *argv[])
           {
              printf(RED"\nDatabase is empty...!\n"RESET);
           }
+          break;
+
+          case 7:
+          printf(YELLOW"\nExiting...!\n"RESET);
           break;
 
           default:

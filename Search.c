@@ -4,16 +4,22 @@ void Search_database(void)
 {
      char fname[30];
 
-     printf(YELLOW"\nEnter the Database file to load : \n"RESET);
-     scanf(" %29[^\n]",fname);
+     printf(YELLOW"\nEnter the Database file to load : \n");
+     scanf(" %29[^\n]"RESET,fname);
 
      if(!validate_fname(fname))
      {
-        printf("\nFile %s validation failed...!\n",fname);
+        printf(RED"\nFile %s validation failed...!\n"RESET,fname);
         return;
      }
 
-     FILE *fptr = fopen(fname,"r");
+    FILE *fptr = fopen(fname,"r");
+
+    if(!fptr)
+    {
+        printf(RED"\nCan't Open File...!\n"RESET);
+        return;
+    }
 
     if(!fptr)
     {
@@ -152,28 +158,22 @@ FLAG load_database(M_node *HT[],const char *fname)
         }
         
         char *ptr = line+1 ;
+
+        int semi = 0;
+
+        while(*ptr && semi < 3) // Skip characters untill file names starts 
+        {
+            if(*ptr == ';')
+            semi++;
         
-        S_node *s_link = NULL;
+            ptr++;
+        }
+
+        S_node *s_link = curr->sub_link;
 
         while(ptr[0] != '\0')
         {
-
-            while(ptr[0] == ' ' || ptr[0] == ';')
-            ptr++;
-
-            if(ptr[0] == '#' || ptr[0] == '\n' || ptr[0] == '\0')
-            break;
-             
-             int semi = 0;
-
-             while(*ptr && semi < 3) // Skip characters untill file names starts 
-             {
-                 if(*ptr == ';')
-                 semi++;
-        
-                 ptr++;
-             }
-
+     
             while(ptr[0] == ' ' || ptr[0] == ';')
             ptr++;
 
@@ -199,10 +199,12 @@ FLAG load_database(M_node *HT[],const char *fname)
 
              ptr = strchr(ptr,';');
 
-             if(ptr != NULL)
+             if(ptr == NULL)
              {
-                ptr++;
+                break;
              }
+
+             ptr++;
 
              S_node *s = malloc(sizeof(S_node));
 
@@ -214,13 +216,13 @@ FLAG load_database(M_node *HT[],const char *fname)
              if(curr->sub_link == NULL)
              {
                 curr->sub_link = s;
+                s_link = s;
              }
              else
              {
                 s_link->sub_link = s;
+                s_link = s;
              }   
-
-             s_link = s;
 
         }
          

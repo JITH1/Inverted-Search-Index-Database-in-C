@@ -47,6 +47,14 @@ int main(int argc,char *argv[])
           break;
 
           case 5:
+          if(Update_database(HT,&Head))
+          {
+              printf(GREEN"\nDatabase updated successfully...!\n"RESET); 
+          }
+          else
+          {
+              printf(RED"\nDatabase Updation Failed...!\n"RESET);
+          }
           break;
 
           case 6:

@@ -20,9 +20,9 @@ void Save_database(M_node *HT[])
         return;
     }
 
-    printf("\nEnter the filename to save the Database : \n");
+    printf(YELLOW"\nEnter the filename to save the Database : \n");
     char f_name[30];
-    scanf(" %29[^\n]",f_name);
+    scanf(" %29[^\n]"RESET,f_name);
     
     if(!validate_fname(f_name))
     {
@@ -101,4 +101,5 @@ FLAG validate_fname(const char *f_name)
         }
 
         return SUCCESS ;
+
 }

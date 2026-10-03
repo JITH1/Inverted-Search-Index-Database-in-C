@@ -27,5 +27,6 @@ FLAG validate_fname(const char *f_name);
 FLAG Clear_database(M_node *HT[],F_node **f_node);
 void Search_database(void);
 FLAG load_database(M_node *HT[],const char *fname);
+FLAG Update_database(M_node *HT[],F_node **f_node);
 
 #endif
